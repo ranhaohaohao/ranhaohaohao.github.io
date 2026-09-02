@@ -1,0 +1,484 @@
+/* ============================================================
+   刘淏冉 · 个人学术主页
+   原生 HTML / CSS，正式、传统、克制的中文学术风格
+   ============================================================ */
+
+:root {
+  --bg: #faf9f6;
+  --bg-soft: #f3f1ec;
+  --text: #222222;
+  --text-muted: #555555;
+  --accent: #26267d;
+  --accent-dark: #1b1b5e;
+  --border: #dedbd4;
+  --focus-ring: rgba(38, 38, 125, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", SimSun, Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ---------- 无障碍 ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  text-decoration: underline;
+}
+
+/* ---------- 顶部导航 ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 249, 246, 0.96);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  gap: 16px;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  color: #444;
+  font-size: 1rem;
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+}
+
+.nav-toggle {
+  display: none;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ---------- 首屏 ---------- */
+.hero {
+  padding: 104px 0 72px;
+}
+
+.hero h1 {
+  margin: 0 0 14px;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.hero-sub {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.hero-dir {
+  margin: 0 0 22px;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+.hero-intro {
+  max-width: 42em;
+  margin: 0 0 34px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ---------- 通用按钮 ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.7em 1.7em;
+  font-size: 1rem;
+  line-height: 1.4;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn-secondary:hover {
+  background: rgba(38, 38, 125, 0.06);
+  color: var(--accent-dark);
+}
+
+/* ---------- 板块 ---------- */
+.section {
+  padding: 76px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section h2 {
+  margin: 0 0 30px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--accent);
+}
+
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+.about-text {
+  max-width: 46em;
+  margin: 0;
+}
+
+/* ---------- 教育背景 ---------- */
+.edu-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+  padding: 16px 0;
+  align-items: baseline;
+}
+
+.edu-item + .edu-item {
+  margin-top: 26px;
+  border-top: 1px solid var(--bg-soft);
+  padding-top: 30px;
+}
+
+.edu-time {
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.edu-body h3 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+.edu-sub,
+.edu-note {
+  margin: 2px 0;
+  color: var(--text-muted);
+}
+
+.edu-sub {
+  color: var(--text);
+}
+
+/* ---------- 科研 / 项目条目 ---------- */
+.entry {
+  padding: 8px 0 8px;
+  margin-bottom: 44px;
+}
+
+.entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.entry-head h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+.entry-time {
+  color: var(--text-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.entry-bg {
+  margin: 10px 0 12px;
+  max-width: 46em;
+}
+
+.entry-list {
+  margin: 0;
+  padding-left: 1.5em;
+  max-width: 46em;
+}
+
+.entry-list li + li {
+  margin-top: 10px;
+}
+
+.entry-list li::marker {
+  color: var(--accent);
+}
+
+.entry-dl {
+  margin: 12px 0 0;
+  display: grid;
+  grid-template-columns: 7.5em 1fr;
+  gap: 10px 22px;
+  max-width: 46em;
+}
+
+.entry-dl dt {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.entry-dl dd {
+  margin: 0;
+}
+
+/* ---------- 简历预览 ---------- */
+.resume-viewer {
+  display: block;
+  width: 100%;
+  height: 1100px;
+  border: 1px solid #d9d6cf;
+  background: #fff;
+}
+
+.resume-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.resume-hint {
+  margin: 14px 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- 联系方式 ---------- */
+.contact-text {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+}
+
+.contact-mail {
+  font-size: 1.05rem;
+}
+
+/* ---------- 页脚 ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 30px 0;
+  margin-top: 8px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.footer-inner p {
+  margin: 0;
+}
+
+/* ---------- 平板（≤1024px） ---------- */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+/* ---------- 手机 / 平板（≤768px） ---------- */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 72px 0 56px;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .site-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 64px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: none;
+  }
+
+  .site-nav.open {
+    display: block;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 24px 16px;
+  }
+
+  .site-nav li + li {
+    border-top: 1px solid var(--bg-soft);
+  }
+
+  .site-nav a {
+    display: block;
+    padding: 12px 0;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .edu-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .edu-item + .edu-item {
+    margin-top: 20px;
+    padding-top: 24px;
+  }
+
+  .entry-head {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .entry-dl {
+    grid-template-columns: 1fr;
+    gap: 4px 0;
+  }
+
+  .entry-dl dd {
+    margin-bottom: 14px;
+  }
+
+  .resume-viewer {
+    height: 70vh;
+    min-height: 480px;
+  }
+
+  .resume-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .resume-actions .btn {
+    text-align: center;
+  }
+}
+
+/* ---------- 窄屏（≤390px） ---------- */
+@media (max-width: 390px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    text-align: center;
+  }
+}
